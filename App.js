@@ -19,7 +19,7 @@ export default function App() {
   const handleButtonPress = () => {
     console.log(todo)
     Keyboard.dismiss()
-    setTasks(...tasks, todo)
+    setTasks([...tasks, todo])
     setTodo("")
   }
 
@@ -32,9 +32,9 @@ export default function App() {
         <Todo title={"First"} />
         <Todo title={"Second"} />
         <Todo title={"Third"} />
-        {/* {tasks.map((task,index)=>{
-          return 
-        })} */}
+        {tasks.map((item, index) => {
+          return <Todo key={index} title={item} />
+        })}
       </View>
 
       <KeyboardAvoidingView
