@@ -1,4 +1,13 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native"
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  TextInput,
+  Platform,
+} from "react-native"
 import { useState } from "react"
 import Todo from "./components/todo"
 
@@ -14,6 +23,18 @@ export default function App() {
         <Todo />
         <Todo />
       </View>
+
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.inputWraper}
+      >
+        <TextInput style={styles.inputText} />
+        <View>
+          <TouchableOpacity style={styles.inputButton}>
+            <Text style={styles.buttonText}>+</Text>
+          </TouchableOpacity>
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
@@ -43,5 +64,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 14,
     width: "100%",
+  },
+  inputWraper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "80%",
+    height: 50,
+    position: "absolute",
+    bottom: 40,
+  },
+  inputText: {
+    paddingLeft: 20,
+    color: "white",
+    width: "70%",
+    fontSize: 20,
+    borderRadius: 50,
+    backgroundColor: "#353839",
+  },
+  inputButton: {
+    backgroundColor: "#353839",
+    borderRadius: 50,
+    width: 50,
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
   },
 })
