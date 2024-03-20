@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Platform,
+  Keyboard,
 } from "react-native"
 import { useState } from "react"
 import Todo from "./components/todo"
@@ -15,16 +16,25 @@ export default function App() {
   const [todo, setTodo] = useState("")
   const [tasks, setTasks] = useState([])
 
+  const handleButtonPress = () => {
+    console.log(todo)
+    Keyboard.dismiss()
+    setTasks(...tasks, todo)
+    setTodo("")
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.header}>Todo list</Text>
       </View>
       <View style={styles.test}>
-        <Todo />
-        <Todo />
-        <Todo />
-        <Todo />
+        <Todo title={"First"} />
+        <Todo title={"Second"} />
+        <Todo title={"Third"} />
+        {/* {tasks.map((task,index)=>{
+          return 
+        })} */}
       </View>
 
       <KeyboardAvoidingView
@@ -37,7 +47,10 @@ export default function App() {
           onChangeText={(text) => setTodo(text)}
         />
         <View>
-          <TouchableOpacity style={styles.inputButton} onPress={handlePress}>
+          <TouchableOpacity
+            style={styles.inputButton}
+            onPress={handleButtonPress}
+          >
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
         </View>
