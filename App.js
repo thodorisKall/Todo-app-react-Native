@@ -12,6 +12,9 @@ import { useState } from "react"
 import Todo from "./components/todo"
 
 export default function App() {
+  const [todo, setTodo] = useState("")
+  const [tasks, setTasks] = useState([])
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -28,9 +31,13 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.inputWraper}
       >
-        <TextInput style={styles.inputText} />
+        <TextInput
+          style={styles.inputText}
+          value={todo}
+          onChangeText={(text) => setTodo(text)}
+        />
         <View>
-          <TouchableOpacity style={styles.inputButton}>
+          <TouchableOpacity style={styles.inputButton} onPress={handlePress}>
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
         </View>
@@ -74,7 +81,7 @@ const styles = StyleSheet.create({
     bottom: 40,
   },
   inputText: {
-    paddingLeft: 20,
+    paddingLeft: 28,
     color: "white",
     width: "70%",
     fontSize: 20,
@@ -90,6 +97,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    color: "white",
+    color: "#5f9ea0",
+    fontSize: 30,
   },
 })
