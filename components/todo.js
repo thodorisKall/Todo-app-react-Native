@@ -20,6 +20,10 @@ const styles = StyleSheet.create({
   },
   todoContainer: {
     backgroundColor: "#353839",
-    width: "80%",
+    width: 270,
+  },
+  todoButton: {
+    fontSize: 28,
+    color: "red",
   },
 })
