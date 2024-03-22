@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   todoContainer: {
     backgroundColor: "#353839",
     width: 270,
+    marginRight: 15,
   },
   todoButton: {
     fontSize: 28,
