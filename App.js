@@ -11,6 +11,7 @@ import {
 } from "react-native"
 import { useState } from "react"
 import Todo from "./components/todo"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 export default function App() {
   const [todo, setTodo] = useState("")
@@ -38,8 +39,11 @@ export default function App() {
           return (
             <View key={index} style={styles.singleTask}>
               <Todo title={item} />
-              <TouchableOpacity onPress={() => deleteTask(index)}>
-                <Text>DE</Text>
+              <TouchableOpacity
+                onPress={() => deleteTask(index)}
+                style={styles.deleteButton}
+              >
+                <Icon name='trash' size={25} color='#353839' />
               </TouchableOpacity>
             </View>
           )
@@ -124,5 +128,8 @@ const styles = StyleSheet.create({
   },
   singleTask: {
     flexDirection: "row",
+  },
+  deleteButton: {
+    justifyContent: "center",
   },
 })
