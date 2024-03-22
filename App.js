@@ -68,6 +68,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
+      <Text style={styles.creditsText}>App By Thodoris Kallioras</Text>
     </SafeAreaView>
   )
 }
@@ -131,5 +132,10 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     justifyContent: "center",
+  },
+  creditsText: {
+    position: "absolute",
+    bottom: 10,
+    color: "#fefefa",
   },
 })
