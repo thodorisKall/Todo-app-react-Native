@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#353839",
     width: 270,
     marginRight: 15,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   todoButton: {
     fontSize: 28,
