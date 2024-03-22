@@ -17,10 +17,15 @@ export default function App() {
   const [tasks, setTasks] = useState([])
 
   const handleButtonPress = () => {
-    console.log(todo)
     Keyboard.dismiss()
     setTasks([...tasks, todo])
     setTodo("")
+  }
+
+  let newTasks
+  const deleteTask = (choice) => {
+    newTasks = tasks.filter((task, index) => index != choice)
+    setTasks(newTasks)
   }
 
   return (
@@ -29,11 +34,15 @@ export default function App() {
         <Text style={styles.header}>Todo list</Text>
       </View>
       <View style={styles.test}>
-        <Todo title={"First"} />
-        <Todo title={"Second"} />
-        <Todo title={"Third"} />
         {tasks.map((item, index) => {
-          return <Todo key={index} title={item} />
+          return (
+            <View key={index} style={styles.singleTask}>
+              <Todo title={item} />
+              <TouchableOpacity onPress={() => deleteTask(index)}>
+                <Text>DE</Text>
+              </TouchableOpacity>
+            </View>
+          )
         })}
       </View>
 
@@ -112,5 +121,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#5f9ea0",
     fontSize: 30,
+  },
+  singleTask: {
+    flexDirection: "row",
   },
 })
