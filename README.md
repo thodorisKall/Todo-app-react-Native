@@ -4,7 +4,8 @@
 The goal of the project is to practice the fundamentals of React Native while creating a user-friendly todo application. The focus is on simplicity and ease of use, providing a basic yet functional interface for managing tasks.
 
 ### 2. App UI:
-The project is not yet deployed.
+The project is not upload yet.
+ ![MergedImages](https://github.com/thodorisKall/Todo-app-react-Native/assets/105176440/73a6b1e7-192b-4076-b151-9a237abc82bb)
 
 
 ### 3. Description:
